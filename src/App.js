@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import './App.scss';
+import Footer from './components/Footer/Footer';
+import NavBar from './components/Nav/Nav';
+import Products from './components/Products/Products';
+import Recommended from './components/Recommended/Recommended';
+import { Col, Container, Row } from 'react-bootstrap';
+import Category from './components/SideBar/Category/Category';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Row>
+            <Col md={3}>
+              <Category />
+            </Col>
+            <Col md={9}>
+              <NavBar />
+              <Recommended />
+              <Products />
+              <Footer />
+            </Col>
+          </Row>
+      </div>
+    </BrowserRouter>
   );
 }
 
